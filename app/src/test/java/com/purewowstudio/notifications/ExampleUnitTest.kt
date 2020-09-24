@@ -1,4 +1,4 @@
-package com.purewowstudio.template
+package com.purewowstudio.notifications
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

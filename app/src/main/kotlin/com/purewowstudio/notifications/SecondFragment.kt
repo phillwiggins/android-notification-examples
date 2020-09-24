@@ -1,4 +1,4 @@
-package com.purewowstudio.template
+package com.purewowstudio.notifications
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,12 +1,12 @@
-package com.purewowstudio.template
+package com.purewowstudio.notifications
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
+import com.purewowstudio.notifications.notifications.createChannel
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -25,8 +25,24 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<Button>(R.id.button_first).setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+        createNotificationChannels()
+    }
+
+    private fun createNotificationChannels() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            createChannel(
+                requireContext(),
+                getString(R.string.notifications_channel_id),
+                getString(R.string.notifications_channel_name),
+                getString(R.string.notifications_channel_description)
+            )
+        }
+    }
+
+    companion object {
+
+        fun newInstance(): FirstFragment {
+            return FirstFragment()
         }
     }
 }

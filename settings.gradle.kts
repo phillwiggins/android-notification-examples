@@ -18,4 +18,4 @@ pluginManagement {
 }
 
 include(":app", "modules:android")
-rootProject.name = "template"
+rootProject.name = "android-notification-examples"
