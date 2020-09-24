@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
+import com.purewowstudio.notifications.notifications.buildSimpleNotification
 import com.purewowstudio.notifications.notifications.createChannel
 
 /**
@@ -26,6 +28,21 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         createNotificationChannels()
+        fireTestNotification()
+    }
+
+    private fun fireTestNotification() {
+        val simpleNotification = buildSimpleNotification(
+            requireContext(),
+            "Title - Test",
+            "Content - Test"
+        )
+
+        val id = 1234
+
+        NotificationManagerCompat
+            .from(requireContext())
+            .notify(id, simpleNotification)
     }
 
     private fun createNotificationChannels() {

@@ -5,7 +5,6 @@ import android.app.NotificationManager
 import android.content.Context
 import android.graphics.Color
 import android.os.Build
-import androidx.annotation.ColorRes
 import androidx.annotation.RequiresApi
 
 @RequiresApi(Build.VERSION_CODES.O)
