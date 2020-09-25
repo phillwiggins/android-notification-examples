@@ -1,27 +1,18 @@
-## :iphone: Android Template
-An Android template that forms the base for any new Android project using best practices and tools to create great apps.
+## :iphone: Android Notifications
+An example of different notifications available in the Android SDK.
 
 ## :muscle: Motivation
-To quickly create an Android application that focuses on:-
+To quickly create code snippets that will allow users to see different
+types of notifications, device what is best for the them, copy the code
+for simplicity and speed.
 
- - Comunity agreed code styles
- - Static Analysis
+## :computer: Notifications Types
 
-## :computer: Tech/framework used
-
-<b>Built with</b>
-- [Ktlint](https://github.com/pinterest/ktlint)
-- [Detekt](https://github.com/detekt/detekt)
-- [Kotlin Gradle DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html)
-- [Pre-commit Formatting](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)
-
-## :memo: Installation
-Click use this template and modify as you please!
+<b>Types</b>
+- Simple Notification
+- Large Image Notification
+- Large Text Notification
+- Inbox Styles Notification
 
 ## :heart: Credits
-TBA
-
-## :oncoming_police_car: License
-TBA
-
-MIT © [Phill Wiggins]()
+Google Docs & Unsplash

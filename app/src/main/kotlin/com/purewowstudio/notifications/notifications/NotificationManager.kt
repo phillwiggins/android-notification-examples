@@ -57,15 +57,15 @@ class NotificationManager(
     * if there is not enough space. Otherwise, this will be title and the large text
     */
     fun fireBigTextNotification() = scope.launch {
-
-        val content = SpannableString.valueOf(SpannableStringBuilder()
-            .bold { append("What's for dinner?") }
-            .append("\n")
-            .append("I can't believe you left without feeding me. I'm hungry. I found a skittle under the fridge but barking doesn't make it come to me.")
-            .append("\n")
-            .append("...")
-            .append("\n")
-            .append("P.S. I drank all the water in my bowl")
+        val content = SpannableString.valueOf(
+            SpannableStringBuilder()
+                .bold { append("What's for dinner?") }
+                .append("\n")
+                .append("I can't believe you left without feeding me. I'm hungry. I found a skittle under the fridge but barking doesn't make it come to me.")
+                .append("\n")
+                .append("...")
+                .append("\n")
+                .append("P.S. I drank all the water in my bowl")
         )
 
         val notification = buildLargeTextNotification(
@@ -79,7 +79,6 @@ class NotificationManager(
         sendNotification(1236, notification)
     }
 
-
     /* Inbox Style
     * A large notification. This notification will shrink to title and content message only
     * if there is not enough space. Otherwise, this will be title and a list of single lines. The
@@ -91,12 +90,16 @@ class NotificationManager(
             "Rover",
             "2 New messages from Rover",
             listOf(
-                SpannableString.valueOf(SpannableStringBuilder()
-                    .bold { append("You forgot about me again!") }
-                    .append(" Why can't I come to work with you?")),
-                SpannableString.valueOf(SpannableStringBuilder()
-                    .bold { append("Where was my pat?") }
-                    .append(" Why can't I come to work with you?"))
+                SpannableString.valueOf(
+                    SpannableStringBuilder()
+                        .bold { append("You forgot about me again!") }
+                        .append(" Why can't I come to work with you?")
+                ),
+                SpannableString.valueOf(
+                    SpannableStringBuilder()
+                        .bold { append("Where was my pat?") }
+                        .append(" Why can't I come to work with you?")
+                )
             )
         )
 
@@ -121,6 +124,5 @@ class NotificationManager(
     companion object {
         private const val DOGGO_URL =
             "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=639&q=80"
-
     }
 }

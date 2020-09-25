@@ -44,7 +44,6 @@ fun buildLargeTextNotification(
     )
     .build()
 
-
 fun buildInboxStyleNotification(
     context: Context,
     title: String,
@@ -55,7 +54,7 @@ fun buildInboxStyleNotification(
     for (message in messages) {
         style.addLine(message)
     }
-    return basicBuilder(context, title,  content)
+    return basicBuilder(context, title, content)
         .setStyle(style)
         .build()
 }
