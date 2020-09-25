@@ -34,6 +34,10 @@ object SupportLibs {
     const val MATERIAL = "com.google.android.material:material:${Versions.MATERIAL}"
 }
 
+object Libs {
+    const val COIL = "io.coil-kt:coil:1.0.0-rc3"
+}
+
 object TestingLib {
     const val JUNIT = "junit:junit:${Versions.JUNIT}"
 }

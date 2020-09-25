@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         supportFragmentManager.beginTransaction().apply {
             add(
                 R.id.fragment_container,
-                FirstFragment.newInstance()
+                MainFragment.newInstance()
             )
             commit()
         }

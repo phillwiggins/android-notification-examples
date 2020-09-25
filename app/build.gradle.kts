@@ -43,10 +43,12 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
-
     lintOptions {
         isWarningsAsErrors = true
         isAbortOnError = true
+    }
+    buildFeatures {
+        viewBinding = true
     }
 }
 
@@ -59,6 +61,8 @@ dependencies {
     implementation(SupportLibs.MATERIAL)
     implementation(SupportLibs.ANDROIDX_NAV_FRAGMENT)
     implementation(SupportLibs.ANDROIDX_NAV_UI)
+
+    implementation(Libs.COIL)
 
     testImplementation(TestingLib.JUNIT)
 
