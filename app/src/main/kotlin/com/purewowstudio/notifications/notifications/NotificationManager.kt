@@ -85,25 +85,63 @@ class NotificationManager(
     * maximum line count is 6
     */
     fun fireInboxNotification() = scope.launch {
-        val notification = buildInboxStyleNotification(
-            context,
-            "Rover",
-            "2 New messages from Rover",
-            listOf(
-                SpannableString.valueOf(
-                    SpannableStringBuilder()
-                        .bold { append("You forgot about me again!") }
-                        .append(" Why can't I come to work with you?")
-                ),
-                SpannableString.valueOf(
-                    SpannableStringBuilder()
-                        .bold { append("Where was my pat?") }
-                        .append(" Why can't I come to work with you?")
-                )
+        val messages = listOf(
+            SpannableString.valueOf(
+                SpannableStringBuilder()
+                    .bold { append("You forgot about me again!") }
+                    .append(" Why can't I come to work with you?")
+            ),
+            SpannableString.valueOf(
+                SpannableStringBuilder()
+                    .bold { append("Where was my pat?") }
+                    .append(" Why can't I come to work with you?")
             )
         )
 
+        val notification = buildInboxStyleNotification(
+            context,
+            "Rover",
+            "${messages.size} New messages from Rover",
+            messages
+        )
+
         sendNotification(1237, notification)
+    }
+
+    /* Message Style
+       * A large notification. This notification will shrink to title and content message only
+       * if there is not enough space. Otherwise, this will be title and a list of single lines
+       * in a messaging style
+       */
+    fun fireMessageStyleNotification() = scope.launch {
+        val doggo = Person.Builder()
+            .setName("Rover")
+            .setBot(false)
+            .setIcon(IconCompat.createWithBitmap(getBitmapFromUrl(context, DOGGO_URL)))
+            .setImportant(true)
+            .build()
+
+        val messages = listOf(
+            Message(
+                "You forgot about me again!",
+                Calendar.getInstance().timeInMillis,
+                doggo
+            ),
+            Message(
+                "Where was my pat?",
+                Calendar.getInstance().timeInMillis,
+                doggo
+            )
+        )
+
+        val notification = buildMessagesNotification(
+            context,
+            "Rover",
+            "${messages.size} New messages from Rover",
+            messages
+        )
+
+        sendNotification(1238, notification)
     }
 
     private fun createNotificationChannels() {

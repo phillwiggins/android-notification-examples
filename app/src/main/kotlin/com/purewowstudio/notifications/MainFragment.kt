@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.purewowstudio.notifications.databinding.FragmentMainBinding
 import com.purewowstudio.notifications.notifications.NotificationManager
+import com.purewowstudio.notifications.notifications.getSimpleNotifications
 
 class MainFragment : Fragment(R.layout.fragment_main) {
 
@@ -29,10 +31,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     }
 
     private fun renderUI() {
-        binding.buttonSimple.setOnClickListener { notificationManager.fireSimpleNotification() }
-        binding.buttonLargeImage.setOnClickListener { notificationManager.fireLargeImageNotification() }
-        binding.buttonLargeText.setOnClickListener { notificationManager.fireBigTextNotification() }
-        binding.buttonInboxStyle.setOnClickListener { notificationManager.fireInboxNotification() }
+        binding.listSimple.layoutManager = LinearLayoutManager(requireContext())
+        binding.listSimple.adapter = NotificationAdapter(getSimpleNotifications(notificationManager))
     }
 
     override fun onDestroyView() {
