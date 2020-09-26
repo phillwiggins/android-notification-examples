@@ -6,11 +6,15 @@ import android.os.Build
 import android.text.SpannableString
 import android.text.SpannableStringBuilder
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.app.Person
+import androidx.core.graphics.drawable.IconCompat
 import androidx.core.text.bold
 import com.purewowstudio.notifications.R
+import com.purewowstudio.notifications.data.Message
 import com.purewowstudio.notifications.utils.getBitmapFromUrl
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import java.util.Calendar
 
 @Suppress("BlockingMethodInNonBlockingContext")
 class NotificationManager(
